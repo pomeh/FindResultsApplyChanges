@@ -20,7 +20,7 @@ class Save2Command(sublime_plugin.WindowCommand):
 class FindResultsApplyChangesEventListener(sublime_plugin.EventListener):
 
 	def on_activated(self, view):
-		if view.name() == 'Find Results':
+		if view.name() == 'Find Results' and view.settings().get('disable_double_click', True):
 			view.settings().set("result_file_regex", '')
 			view.settings().set("result_line_regex", '')
 
